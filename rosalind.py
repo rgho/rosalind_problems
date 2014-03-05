@@ -33,6 +33,19 @@ def reverse_compliment(dna_string):
 			rc+= 'C'
 	return rc
 
+def hamming_distance(string1, string2):
+	shorter_string = string1 if len(string1) <= len(string2) else string2
+	longer_string = string1 if shorter_string == string2 else string2
+
+	dist = 0
+	for index in range(len(shorter_string)):
+		if not shorter_string[index] == longer_string[index]:
+			dist +=1
+	
+	# handle case when string are diff length
+	dist += len(longer_string) - len(shorter_string)
+	return dist
+
 
 def ros1(dna_string):
 	base_count = dna_base_frequencies(dna_string)
@@ -43,6 +56,8 @@ def ros2(dna_string):
 
 def ros3(dna_string):
 	return reverse_compliment(dna_string)
+
+def ros6()
 
 
 print ros1('AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC')
